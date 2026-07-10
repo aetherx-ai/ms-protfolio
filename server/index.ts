@@ -2,7 +2,6 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -11,9 +10,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function startServer() {
-  // MongoDB Connection
-  await mongoose.connect(process.env.MONGO_URI!);
-  console.log("✅ MongoDB Connected");
 
   const app = express();
   const server = createServer(app);
